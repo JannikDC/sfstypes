@@ -11,7 +11,7 @@ go get github.com/jannikdc/sfstypes
 
 ## Usage
 
-```
+```go
 sfsobj := sfstypes.NewSFSObject() // Creates a new SFSObject
 sfsarr := sfstypes.NewSFSArray()  // Creates a new SFSArray
 
