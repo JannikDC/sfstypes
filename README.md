@@ -1,2 +1,2 @@
 # sfstypes
-Implementation of SmartFoxServer 2X data types in Go.
+Implementation of SmartFoxServer 2X data types in Go
