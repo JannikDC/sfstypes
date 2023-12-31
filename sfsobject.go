@@ -284,26 +284,26 @@ func (sfsobject *SFSObject) GetLongArray(key string) ([]int64, error) {
 	return nil, err
 }
 
-func (sfsobject *SFSObject) GetSFSArray(key string) (SFSArray, error) {
+func (sfsobject *SFSObject) GetSFSArray(key string) (*SFSArray, error) {
 	value, err := sfsobject.getWrapper(key)
 	if err == nil {
 		if value.typeId == type_SFS_ARRAY {
-			return value.data.(SFSArray), nil
+			return value.data.(*SFSArray), nil
 		}
-		return *NewSFSArray(), &ErrWrongType{actualType: value.typeId, wantedType: type_SFS_ARRAY}
+		return NewSFSArray(), &ErrWrongType{actualType: value.typeId, wantedType: type_SFS_ARRAY}
 	}
-	return *NewSFSArray(), err
+	return NewSFSArray(), err
 }
 
-func (sfsobject *SFSObject) GetSFSObject(key string) (SFSObject, error) {
+func (sfsobject *SFSObject) GetSFSObject(key string) (*SFSObject, error) {
 	value, err := sfsobject.getWrapper(key)
 	if err == nil {
 		if value.typeId == type_SFS_OBJECT {
-			return value.data.(SFSObject), nil
+			return value.data.(*SFSObject), nil
 		}
-		return *NewSFSObject(), &ErrWrongType{actualType: value.typeId, wantedType: type_SFS_OBJECT}
+		return NewSFSObject(), &ErrWrongType{actualType: value.typeId, wantedType: type_SFS_OBJECT}
 	}
-	return *NewSFSObject(), err
+	return NewSFSObject(), err
 }
 
 func (sfsobject *SFSObject) GetShort(key string) (int16, error) {
